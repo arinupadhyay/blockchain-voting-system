@@ -1,6 +1,8 @@
 # 🗳️ C++ Object-Oriented Voting System
 
-A robust, modular console application built in **C++17** to demonstrate fundamental and advanced **Object-Oriented Programming (OOP)** principles, modular software architecture, and secure data integrity.
+A secure and modular console-based voting application developed using C++17. The project demonstrates core and advanced Object-Oriented Programming (OOP) concepts, including encapsulation, inheritance, abstraction, and polymorphism.
+
+The system is designed with a modular software architecture and uses SHA-256 hash chaining to provide tamper-evident and verifiable vote records. It also demonstrates practical concepts such as STL containers, file handling, data persistence, logging, and structured software design.
 
 ---
 
