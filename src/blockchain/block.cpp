@@ -1,7 +1,7 @@
 // Block.h
 #include <string>
 #include <ctime>
-#include "HashManager.h"
+#include "HashManager.cpp"
 class Block {
 protected:
     int index;
