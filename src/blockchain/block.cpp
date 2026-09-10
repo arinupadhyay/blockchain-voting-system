@@ -1,43 +1,18 @@
-// Block.h
-#include <string>
-#include <ctime>
-#include "HashManager.cpp"
-class Block {
-protected:
-    int index;
-    std::string timestamp;
-    std::string previousHash;
-    std::string hash;
-    int nonce;
+#include "block.h"
+#include <iostream>
 
-    std::string getCurrentTimestamp() const {
-        time_t now = time(nullptr);
-        return std::to_string(now);
-    }
+int main() {
 
-public:
-    Block(int idx, const std::string& prevHash)
-        : index(idx), previousHash(prevHash), nonce(0) {
-        timestamp = getCurrentTimestamp();
-    }
+    Block block(1, "0");
 
-    virtual ~Block() = default;
+    std::cout << "Mining block..." << std::endl;
 
-    virtual std::string calculateHash() const {
-        std::stringstream ss;
-        ss << index << timestamp << previousHash << nonce;
-        return HashManager::sha256(ss.str());
-    }
+    block.mineBlock(2);
 
-    void mineBlock(int difficulty) {
-        std::string target(difficulty, '0');
-        do {
-            nonce++;
-            hash = calculateHash();
-        } while (hash.substr(0, difficulty) != target);
-    }
+    std::cout << "Block mined!" << std::endl;
+    std::cout << "Block Index: " << block.getIndex() << std::endl;
+    std::cout << "Previous Hash: " << block.getPreviousHash() << std::endl;
+    std::cout << "Hash: " << block.getHash() << std::endl;
 
-    std::string getHash() const { return hash; }
-    std::string getPreviousHash() const { return previousHash; }
-    int getIndex() const { return index; }
-};
+    return 0;
+}
