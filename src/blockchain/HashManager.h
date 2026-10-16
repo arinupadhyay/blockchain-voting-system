@@ -3,9 +3,13 @@
 
 #include <string>
 
-class HashManager {
-public:
-    static std::string sha256(const std::string& input);
-};
+namespace Security {
+
+    class HashManager {
+    public:
+        static std::string sha256(const std::string& input);
+    };
+
+}
 
 #endif
